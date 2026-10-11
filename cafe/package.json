@@ -1,0 +1,30 @@
+{
+  "name": "coffee-spot",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "concurrently -k -n API,WEB \"npm run dev -w server\" \"npm run dev -w client\"",
+    "demo": "concurrently -k -n API,WEB \"npm run demo -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w client",
+    "start": "npm start -w server",
+    "seed": "npm run seed -w server",
+    "test": "npm test -w server",
+    "test:unit": "npm run test:unit -w server",
+    "test:integration": "npm run test:integration -w server",
+    "format": "prettier --write \"client/src/**/*.{js,jsx,css}\" \"server/**/*.js\" \"scripts/*.mjs\"",
+    "test:ui": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "concurrently": "^9.2.1",
+    "prettier": "^3.9.10"
+  }
+}
