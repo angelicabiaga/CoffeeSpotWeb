@@ -2,6 +2,11 @@ import mongoose from 'mongoose';
 import { config, checkConfig } from './config.js';
 import { app } from './app.js';
 import { initModels } from './models.js';
+
+import dns from 'node:dns';
+
+dns.setServers(['8.8.8.8', '8.8.4.4']);
+
 try {
   checkConfig();
   await mongoose.connect(config.uri, { serverSelectionTimeoutMS: 10000 });
