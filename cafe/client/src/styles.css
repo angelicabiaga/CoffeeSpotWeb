@@ -1,18 +1,23 @@
 :root {
   font-family: 'Plus Jakarta Sans', Arial, sans-serif;
-  --wine: #701d38;
-  --wine-dark: #4c1428;
-  --yellow: #f3c84b;
-  --ink: #2a2024;
-  --muted: #82767b;
-  --border: #ede6e9;
-  --paper: #faf8f9;
-  --green: #2c7757;
-  --red: #b02c45;
+
+  /* Coffee Spot — warm coffee palette */
+  --wine: #704025;
+  --wine-dark: #2b170f;
+  --yellow: #e8ad68;
+  --ink: #38251d;
+  --muted: #8b776b;
+  --border: #ead9c6;
+  --paper: #fbf5eb;
+
+  --green: #477052;
+  --red: #a83d32;
+
   --bs-body-font-family: 'Plus Jakarta Sans', Arial, sans-serif;
   --bs-body-color: var(--ink);
   --bs-body-bg: var(--paper);
 }
+
 * {
   box-sizing: border-box;
 }
@@ -2059,4 +2064,1204 @@ input[type='checkbox'] {
   .spot-modal .cart-summary {
     padding: 18px 0 0;
   }
+}
+
+/* =========================================
+   COFFEE SPOT — PREMIUM AUTHENTICATION THEME
+   ========================================= */
+
+.login-page {
+  --coffee-dark: #38251e;
+  --coffee-deep: #26170f;
+  --coffee-caramel: #c58b59;
+  --coffee-cream: #f8f0e3;
+  --coffee-ivory: #fffcf6;
+  --coffee-muted: #82766b;
+  --coffee-border: #e7d5c1;
+
+  min-height: 100vh;
+  background: var(--coffee-ivory);
+  grid-template-columns: 1.05fr 0.95fr;
+}
+
+/* Left branding panel */
+.login-story {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  padding: 35px clamp(30px, 4.5vw, 76px);
+  overflow: hidden;
+  justify-content: space-between;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(38, 23, 15, 0.91),
+      rgba(56, 37, 30, 0.73)
+    ),
+    url('/coffee-login.jpg') center / cover no-repeat,
+    var(--coffee-dark);
+  color: #fffaf2;
+}
+
+.login-story::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    rgba(30, 17, 10, 0.42),
+    transparent 48%
+  );
+}
+
+.login-story .brand {
+  padding: 0;
+  gap: 13px;
+  font-size: 24px;
+  letter-spacing: -0.7px;
+}
+
+.login-story .brand-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  background: #e8b86e;
+  color: var(--coffee-dark);
+}
+
+.login-story .brand small {
+  margin-top: 6px;
+  color: #e7c9a8;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+}
+
+.story-copy {
+  margin: 40px 0;
+}
+
+.story-tag {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #e8bc86;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  line-height: 1.8;
+}
+
+.story-line {
+  display: inline-block;
+  width: 42px;
+  height: 2px;
+  background: var(--coffee-caramel);
+  flex-shrink: 0;
+}
+
+.login-story h1 {
+  margin: 24px 0;
+  color: #fffaf2;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(36px, 4.3vw, 66px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -1.9px;
+}
+
+.login-story h1 em {
+  color: #e8ad6d;
+  font-style: normal;
+}
+
+.login-story p {
+  color: #e5d3c3;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.login-art {
+  gap: 18px;
+  align-items: center;
+}
+
+.login-art .coffee-art {
+  width: min(220px, 42%);
+  height: 165px;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+.login-art .coffee-art svg ellipse:first-child {
+  fill: #1e120b;
+  opacity: 0.35;
+}
+
+.login-art > span {
+  color: #ead6c3;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.login-art b {
+  color: #fff8ef;
+}
+
+.art-line {
+  display: block;
+  width: 35px;
+  height: 2px;
+  margin-bottom: 13px;
+  background: var(--coffee-caramel);
+}
+
+.login-story > .story-footer {
+  color: #d3ac85;
+  font-size: 9px;
+  letter-spacing: 2.6px;
+}
+
+/* Right registration panel */
+.login-form-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 48px clamp(26px, 5vw, 90px);
+  background:
+    radial-gradient(
+      ellipse at 80% 10%,
+      #fffefa 0%,
+      transparent 60%
+    ),
+    var(--coffee-cream);
+}
+
+.login-form {
+  width: 100%;
+  max-width: 500px;
+}
+
+.login-form .eyebrow {
+  margin-bottom: 18px;
+  color: #b77743;
+  font-size: 10px;
+  letter-spacing: 3px;
+  line-height: 1.8;
+}
+
+.login-form h2 {
+  margin: 0 0 10px;
+  color: var(--coffee-dark);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(32px, 3vw, 46px);
+  font-weight: 700;
+  letter-spacing: -1.3px;
+  line-height: 1.2;
+}
+
+.login-form > .form-intro {
+  margin-bottom: 30px;
+  color: #76695e;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Form spacing */
+.coffee-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 0;
+  color: #38251e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.coffee-input {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+  min-height: 56px;
+  padding: 0 17px;
+  border: 1px solid var(--coffee-border);
+  border-radius: 12px;
+  background: rgba(255, 252, 246, 0.85);
+  color: #a47753;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.coffee-input:focus-within {
+  border-color: var(--coffee-caramel);
+  background: #fffefa;
+  box-shadow: 0 0 0 3px rgba(197, 139, 89, 0.13);
+}
+
+.coffee-input svg {
+  flex-shrink: 0;
+}
+
+.login-form .coffee-input input {
+  width: 100%;
+  min-width: 0;
+  padding: 15px 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--coffee-dark);
+  font-size: 14px;
+}
+
+.coffee-input input::placeholder {
+  color: #96887b;
+  opacity: 1;
+}
+
+.login-form .field > small {
+  color: var(--coffee-muted);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Main submit button */
+.login-form .form-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 58px;
+  margin-top: 5px;
+  padding: 16px 20px;
+  border: 1px solid var(--coffee-dark);
+  border-radius: 12px;
+  background: linear-gradient(110deg, #4b2b1c, #38251e);
+  color: #fffaf2;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 5px 12px rgba(56, 37, 30, 0.09);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.login-form .form-submit:hover:not(:disabled) {
+  background: #25170f;
+  box-shadow: 0 8px 20px rgba(56, 37, 30, 0.16);
+  transform: translateY(-1px);
+}
+
+/* Login/register toggle */
+.login-form .auth-switch {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin: 23px 0;
+  color: #4d4036;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.login-form .auth-switch strong {
+  color: #ae6b38;
+}
+
+.login-form .auth-switch svg {
+  color: #ae6b38;
+  transition: transform 160ms ease;
+}
+
+.login-form .auth-switch:hover svg {
+  transform: translateX(4px);
+}
+
+/* Security note and demo panel */
+.login-form .login-security {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 38px;
+  color: #8d7d6f;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.login-form .login-security svg {
+  flex-shrink: 0;
+  color: #b77743;
+}
+
+.login-form .demo-login {
+  border-color: var(--coffee-border);
+  background: #f2e6d5;
+  color: #79624f;
+}
+
+.login-form .demo-login b {
+  color: var(--coffee-dark);
+}
+
+.login-form .notice {
+  margin-bottom: 18px;
+}
+
+/* Mobile and tablet layout */
+@media (max-width: 900px) {
+  .login-page {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .login-story {
+    padding: 30px;
+  }
+
+  .login-story h1 {
+    font-size: clamp(32px, 4vw, 44px);
+    letter-spacing: -1px;
+  }
+
+  .login-form-wrap {
+    padding: 35px 28px;
+  }
+
+  .login-art .coffee-art {
+    width: 135px;
+    height: 125px;
+  }
+}
+
+@media (max-width: 650px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  .login-story {
+    min-height: auto;
+    padding: 27px 25px 30px;
+  }
+
+  .login-story .brand {
+    font-size: 21px;
+  }
+
+  .login-story .brand-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .story-copy {
+    margin: 35px 0 20px;
+  }
+
+  .story-tag {
+    font-size: 8px;
+    letter-spacing: 1.7px;
+  }
+
+  .login-story h1 {
+    font-size: clamp(34px, 9vw, 48px);
+  }
+
+  .login-story p {
+    font-size: 13px;
+  }
+
+  .login-art {
+    display: none;
+  }
+
+  .login-story > .story-footer {
+    font-size: 8px;
+    letter-spacing: 1.8px;
+  }
+
+  .login-form-wrap {
+    padding: 36px 25px 42px;
+  }
+
+  .login-form {
+    max-width: 460px;
+  }
+
+  .login-form h2 {
+    font-size: 34px;
+  }
+
+  .login-form > .form-intro {
+    margin-bottom: 25px;
+  }
+
+  .coffee-auth-form {
+    gap: 18px;
+  }
+
+  .login-form .login-security {
+    margin-top: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coffee-input,
+  .login-form .form-submit,
+  .login-form .auth-switch svg {
+    transition: none;
+  }
+}
+
+/* ==========================================
+   COFFEE SPOT — ENHANCED BOTANICAL DECOR
+   ========================================== */
+
+.login-form-wrap {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+
+  background-color: #fbf5e9;
+  background-image:
+    url('/coffee-botanical.png'),
+    radial-gradient(
+      ellipse at 50% 45%,
+      #fffdf8 0%,
+      #fbf4e8 72%,
+      #f4e8d6 100%
+    );
+  background-repeat: no-repeat, no-repeat;
+
+  /* Larger upper-right botanical */
+  background-position:
+    right -5px top -5px,
+    center;
+
+  background-size:
+    430px auto,
+    cover;
+}
+
+/* Larger lower-left botanical */
+.login-form-wrap::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+
+  left: -20px;
+  bottom: -30px;
+
+  width: 390px;
+  height: 390px;
+
+  background-image: url('/coffee-botanical.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  /* Mirror the artwork for a balanced composition */
+  transform: scaleX(-1);
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+/* Keep the login form above the artwork */
+.login-form {
+  position: relative;
+  z-index: 1;
+}
+
+/* Prevent the decorations from covering input fields */
+.login-form-wrap .coffee-auth-form,
+.login-form-wrap .auth-switch,
+.login-form-wrap .login-security {
+  position: relative;
+  z-index: 2;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .login-form-wrap {
+    background-position:
+      right -35px top -15px,
+      center;
+    background-size:
+      320px auto,
+      cover;
+  }
+
+  .login-form-wrap::after {
+    width: 290px;
+    height: 290px;
+    left: -35px;
+    bottom: -20px;
+    opacity: 0.8;
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .login-form-wrap {
+    background-position:
+      right -35px top -10px,
+      center;
+    background-size:
+      220px auto,
+      cover;
+  }
+
+  .login-form-wrap::after {
+    width: 200px;
+    height: 200px;
+    left: -35px;
+    bottom: -15px;
+    opacity: 0.65;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.brand-logo {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (max-width: 650px) {
+  .brand-logo {
+    width: 240px;
+  }
+}
+
+/* COFFEE SPOT — LEFT HERO PANEL */
+.login-story {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 42px clamp(32px, 5.2vw, 86px) 40px;
+  overflow: hidden;
+
+  /* Keep your existing coffee background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Align logo with the headline below */
+.login-story .brand {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Keep the logo clean and proportional */
+.login-story .brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Reduce unnecessary space between logo and headline */
+.login-story .story-copy {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(90px, 15vh, 175px);
+  padding: 0;
+  max-width: 900px;
+}
+
+/* Keep headline aligned with logo */
+.login-story .story-copy h1 {
+  margin: 32px 0 24px;
+  max-width: 900px;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+
+/* Maintain readable supporting text */
+.login-story .story-copy p {
+  margin-top: 26px;
+  line-height: 1.8;
+}
+
+/* Keep footer close to the bottom */
+.login-story .story-footer {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding-top: 35px;
+}
+
+/* Prevent the two panels from creating unwanted gaps */
+.login-page {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.login-story,
+.login-form-wrap {
+  min-width: 0;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .login-story {
+    min-height: 720px;
+    padding: 32px 26px;
+  }
+
+  .login-story .story-copy {
+    margin-top: 90px;
+  }
+
+  .login-story .story-copy h1 {
+    font-size: clamp(38px, 8vw, 60px);
+  }
+
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Align Coffee Spot logo with the text below */
+.login-story .brand {
+  align-self: flex-start;
+  margin-left: 0;
+  padding-left: 0;
+  transform: translateX(-39px);
+}
+
+/* Keep the headline and supporting text aligned */
+.login-story .story-copy {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Prevent the logo from shifting on smaller screens */
+@media (max-width: 768px) {
+  .login-story .brand {
+    transform: translateX(-12px);
+  }
+}
+
+.login-story .brand {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.login-story .brand-logo {
+  display: block;
+  width: 290px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (max-width: 768px) {
+  .login-story .brand-logo {
+    width: 240px;
+  }
+}
+
+/* Coffee Spot logo */
+.login-story .brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.login-story .brand-logo {
+  display: block;
+  width: 290px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Mobile logo sizing */
+@media (max-width: 768px) {
+  .login-story .brand-logo {
+    width: 235px;
+  }
+}
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
+}
+
+.brand-logo {
+  display: block;
+  width: 310px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* ========================================
+   COFFEE SPOT — DASHBOARD THEME
+   ======================================== */
+
+/* Main workspace */
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.app-shell {
+  background: var(--paper);
+}
+
+/* Espresso sidebar */
+.sidebar {
+  background: linear-gradient(180deg, #321b11 0%, #24120c 100%);
+  color: #fff5e9;
+}
+
+.sidebar-label {
+  color: #d0a276;
+}
+
+.sidebar nav a,
+.sidebar-bottom > a,
+.sidebar-bottom > button {
+  color: #e7d2bd;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar nav a:hover,
+.sidebar-bottom > a:hover,
+.sidebar-bottom > button:hover {
+  background: #ffffff12;
+  color: #fff8ef;
+}
+
+.sidebar nav a.active {
+  background: #e8ad68;
+  color: #321b11;
+}
+
+.sidebar nav a.active svg {
+  color: #321b11;
+}
+
+.brand-icon {
+  background: #e8ad68;
+  color: #321b11;
+}
+
+.brand small {
+  color: #e8c29a;
+}
+
+.shift-card {
+  border-color: #765039;
+  background: #ffffff08;
+}
+
+/* Warm cream top bar */
+.topbar {
+  background: #fffaf2;
+  border-bottom-color: #ead9c6;
+}
+
+.topbar-left,
+.topbar-left strong {
+  color: #705747;
+}
+
+.branch-dot {
+  background: #c58142;
+}
+
+.avatar {
+  background: #f0dfca;
+  color: #60351f;
+}
+
+/* Page headings and supporting text */
+.page-title,
+.page-title h1,
+.page-title h2 {
+  color: #38251d;
+}
+
+.muted,
+small {
+  color: var(--muted);
+}
+
+/* Coffee-colored primary buttons */
+.btn-primary {
+  background: #432619;
+  border-color: #432619;
+  color: #fff6eb;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #603821;
+  border-color: #603821;
+  color: #fff6eb;
+}
+
+/* Dashboard welcome banner */
+.welcome-banner {
+  background: linear-gradient(120deg, #3a2116 0%, #5b3521 100%);
+  border: 1px solid #69442e;
+  border-radius: 16px;
+  color: #fff4e8;
+}
+
+.welcome-banner h2 {
+  color: #fff4e8;
+}
+
+.welcome-banner p {
+  color: #e5c7ab;
+}
+
+.welcome-banner a {
+  color: #f1bc7a;
+}
+
+.welcome-banner a:hover {
+  color: #ffdbab;
+}
+
+.welcome-banner:after {
+  border-color: #ffffff20;
+}
+
+.banner-tag {
+  background: #f2c88e;
+  color: #452716;
+}
+
+/* Statistics cards */
+.stat-card {
+  background: #fffaf3;
+  border-color: #ead9c6;
+  border-radius: 14px;
+}
+
+.stat-card:hover {
+  box-shadow: 0 8px 26px #3b211610;
+}
+
+.stat-card > div {
+  color: #bd956f;
+}
+
+.stat-icon {
+  background: #f2e3d1;
+  color: #75452b;
+}
+
+.stat-card:nth-child(2) .stat-icon {
+  background: #f8e9c9;
+  color: #98611f;
+}
+
+/* Dashboard panels */
+.panel {
+  background: #fffaf3;
+  border-color: #ead9c6;
+  border-radius: 14px;
+}
+
+.section-heading h2,
+.section-heading h3 {
+  color: #38251d;
+}
+
+.section-heading p {
+  color: #907b6d;
+}
+
+.stock-alert-row {
+  border-bottom-color: #eee1d2;
+}
+
+.mini-icon {
+  background: #f4e4cf;
+  color: #86542e;
+}
+
+.text-button {
+  color: #8b512d;
+}
+
+.text-button:hover {
+  color: #b5743d;
+}
+
+/* Inputs, dropdowns, and date filters */
+input,
+select,
+textarea {
+  background-color: #fffaf3;
+  border-color: #e5cfb8;
+  color: #38251d;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #bd8755;
+  box-shadow: 0 0 0 3px #bd875520;
+}
+
+/* Consistent warm selection and links */
+a:hover {
+  text-decoration-color: #bd8755;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline-color: #bd8755;
+}
+
+/* Responsive dashboard */
+@media (max-width: 768px) {
+  .welcome-banner {
+    padding: 22px;
+  }
+
+  .welcome-banner .coffee-art {
+    max-width: 120px;
+  }
+}
+.dashboard-brand-logo {
+  display: block;
+  width: 210px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.welcome-banner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.8fr);
+  align-items: center;
+  gap: 32px;
+  min-height: 245px;
+  padding: 34px 38px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(115deg, #48291b 0%, #593522 60%, #68422b 100%);
+  color: #fff8ef;
+  border: 1px solid rgba(226, 174, 117, 0.18);
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  max-width: 610px;
+}
+
+
+.welcome-banner .banner-tag {
+  display: block;
+  width: fit-content;
+  margin-bottom: 18px;
+  padding: 0;
+  background: transparent;
+  color: #e8b477;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.welcome-banner .banner-tag::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  margin-right: 12px;
+  background: #e8b477;
+  vertical-align: middle;
+}
+
+
+.welcome-banner h2 {
+  margin: 0 0 12px;
+  color: #fff8ef;
+  font-size: clamp(25px, 2.2vw, 34px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.welcome-banner h2 span {
+  color: #efb36f;
+}
+
+.welcome-banner p {
+  max-width: 440px;
+  margin: 0 0 20px;
+  color: #e4cbbb;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.welcome-banner a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #f1b36d;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.welcome-banner a:hover {
+  color: #fff1dc;
+}
+
+.welcome-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 140px;
+  padding-left: 30px;
+  border-left: 1px solid rgba(255, 226, 197, 0.2);
+}
+
+.welcome-side-label {
+  margin-bottom: 12px;
+  color: #d5a477;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.welcome-side-title {
+  color: #fff8ef;
+  font-family: Georgia, serif;
+  font-size: clamp(23px, 2vw, 30px);
+  font-weight: 700;
+}
+
+.welcome-side-description {
+  margin-top: 10px;
+  color: #d9bba5;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .welcome-banner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 26px 22px;
+  }
+
+  .welcome-side {
+    min-height: auto;
+    padding: 18px 0 0;
+    border-top: 1px solid rgba(255, 226, 197, 0.2);
+    border-left: none;
+  }
+}
+
+.welcome-banner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  align-items: center;
+  min-height: 245px;
+  padding: 34px 38px;
+  overflow: hidden;
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(40, 20, 11, 0.88) 0%,
+      rgba(40, 20, 11, 0.65) 48%,
+      rgba(40, 20, 11, 0.12) 100%
+    ),
+    url('/coffee-banner.png') center 55% / cover no-repeat;
+  color: #fff8ef;
+  border: 1px solid rgba(226, 174, 117, 0.18);
+}
+
+.welcome-banner .welcome-content {
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-banner .welcome-side {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .welcome-banner {
+    grid-template-columns: 1fr;
+    min-height: 260px;
+    padding: 26px 22px;
+    background-position: center;
+  }
+}
+
+/* Remove the old decorative circle and curved line */
+.welcome-banner::before,
+.welcome-banner::after,
+.welcome-banner .coffee-art::before,
+.welcome-banner .coffee-art::after {
+  content: none !important;
+  display: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.welcome-banner .welcome-side {
+  border: none !important;
 }

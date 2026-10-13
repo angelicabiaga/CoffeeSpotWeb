@@ -56,12 +56,11 @@ export default function Layout() {
       <div className={'sidebar-shade ' + (open ? 'visible' : '')} onClick={() => setOpen(false)} />
       <aside className={'sidebar ' + (open ? 'open' : '')}>
         <Link className="brand" to="/">
-          <span className="brand-icon">
-            <Coffee size={24} />
-          </span>
-          <span>
-            Coffee Spot<small>BREW. SERVE. GROW.</small>
-          </span>
+          <img
+            src="/coffee-spot-dashboard-logo.png"
+            alt="Coffee Spot"
+            className="dashboard-brand-logo"
+          />
         </Link>
         <div className="sidebar-label">WORKSPACE</div>
         <nav>

@@ -45,20 +45,31 @@ export default function Dashboard() {
         data && (
           <>
             <section className="welcome-banner">
-              <div>
-                <span className="banner-tag">YOUR DAILY BREW, AT A GLANCE</span>
+              <div className="welcome-content">
+                <span className="banner-tag">COFFEE SPOT · DAILY OVERVIEW</span>
                 <h2>
-                  More time for coffee.
+                  Your shop,
                   <br />
-                  Less time counting.
+                  <span>running smoothly.</span>
                 </h2>
-                <p>Keep your team in sync and every order on track.</p>
+                <p>
+                  Keep track of orders, manage your team, and stay on top of inventory — all in one
+                  place.
+                </p>
                 <Link to="/board">
-                  Open preparation board <ArrowUpRight size={17} />
+                  View preparation board <ArrowUpRight size={17} />
                 </Link>
               </div>
-              <CoffeeArt variant="latte" />
+
+              <div className="welcome-side">
+                <span className="welcome-side-label">MADE FOR YOUR DAILY GRIND</span>
+                <span className="welcome-side-title">Brew. Serve. Grow.</span>
+                <span className="welcome-side-description">
+                  Every order. Every ingredient. Every shift.
+                </span>
+              </div>
             </section>
+
             <div className="stats-grid">
               {(manager
                 ? [
