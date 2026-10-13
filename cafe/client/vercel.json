@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://coffeespotweb-meua.onrender.com/api/:path*"
+    }
+  ]
+}
