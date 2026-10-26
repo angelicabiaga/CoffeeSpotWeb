@@ -218,7 +218,7 @@ export default function Login() {
             className="demo-fill demo-fill-main"
             onClick={() => fillDemo(DEMO_ACCOUNTS.angelica)}
           >
-            <Sparkles size={18} />
+          
             <span>
               <b>{DEMO_ACCOUNTS.angelica.label}</b>
               <small>Click to fill the login fields</small>
