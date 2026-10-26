@@ -17,7 +17,7 @@ import { Form, Field, Alert, CoffeeArt } from '../components/UI';
 const DEMO_ACCOUNTS = {
   angelica: {
     label: 'Angelica Biaga (Demo)',
-    email: 'angelicabiaga@coffeespot.local',
+    email: 'angelicabiaga4224@gmail.com',
     password: 'CoffeeSpot123!',
   },
   manager: {
