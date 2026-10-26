@@ -1,23 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import {
-  Coffee,
   ArrowRight,
   ShieldCheck,
   UserRound,
   Mail,
   LockKeyhole,
- 
+  Eye,
+  EyeOff,
 } from 'lucide-react';
 import { useAuth } from '../Auth';
 import { api } from '../api';
-import { Form, Field, Alert, CoffeeArt } from '../components/UI';
+import { Form, Field, Alert } from '../components/UI';
 
 /* Clickable demo accounts. Change the emails to match your seeded users. */
 const DEMO_ACCOUNTS = {
   angelica: {
     label: 'Angelica Biaga (Demo)',
-    email: 'angelicabiaga4224@gmail.com',
+    email: 'angelicabiaga@coffeespot.local',
     password: 'CoffeeSpot123!',
   },
   manager: {
@@ -35,15 +35,33 @@ const DEMO_ACCOUNTS = {
 /* Sets an input value in a way React notices */
 const setInputValue = (el, value) => {
   if (!el) return;
-  Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(el, value);
+  const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value');
+  if (setter && setter.set) setter.set.call(el, value);
+  else el.value = value;
   el.dispatchEvent(new Event('input', { bubbles: true }));
 };
+
+/* Eye button that shows or hides the password */
+function PasswordToggle({ shown, onToggle }) {
+  return (
+    <button
+      type="button"
+      className="pw-toggle"
+      onClick={onToggle}
+      aria-label={shown ? 'Hide password' : 'Show password'}
+      title={shown ? 'Hide password' : 'Show password'}
+    >
+      {shown ? <EyeOff size={20} /> : <Eye size={20} />}
+    </button>
+  );
+}
 
 export default function Login() {
   const { user, login, demo } = useAuth();
   const [register, setRegister] = useState(false);
   const [success, setSuccess] = useState('');
   const [fillWith, setFillWith] = useState(null);
+  const [showPw, setShowPw] = useState(false);
   const formRef = useRef(null);
 
   /* Fill the login fields once the login form is showing */
@@ -172,13 +190,14 @@ export default function Login() {
                 <LockKeyhole aria-hidden="true" size={21} />
                 <input
                   name="password"
-                  type="password"
+                  type={showPw ? 'text' : 'password'}
                   required
                   minLength={register ? 10 : 1}
                   maxLength={72}
                   autoComplete={register ? 'new-password' : 'current-password'}
                   placeholder="Enter your password"
                 />
+                <PasswordToggle shown={showPw} onToggle={() => setShowPw((v) => !v)} />
               </div>
             </Field>
 
@@ -188,11 +207,12 @@ export default function Login() {
                   <LockKeyhole aria-hidden="true" size={21} />
                   <input
                     name="confirm"
-                    type="password"
+                    type={showPw ? 'text' : 'password'}
                     required
                     autoComplete="new-password"
                     placeholder="Confirm your password"
                   />
+                  <PasswordToggle shown={showPw} onToggle={() => setShowPw((v) => !v)} />
                 </div>
               </Field>
             )}
@@ -218,7 +238,6 @@ export default function Login() {
             className="demo-fill demo-fill-main"
             onClick={() => fillDemo(DEMO_ACCOUNTS.angelica)}
           >
-          
             <span>
               <b>{DEMO_ACCOUNTS.angelica.label}</b>
               <small>Click to fill the login fields</small>
