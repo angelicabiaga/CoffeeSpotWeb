@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import {
   Coffee,
@@ -8,15 +7,58 @@ import {
   UserRound,
   Mail,
   LockKeyhole,
+  Sparkles,
 } from 'lucide-react';
 import { useAuth } from '../Auth';
 import { api } from '../api';
 import { Form, Field, Alert, CoffeeArt } from '../components/UI';
 
+/* Clickable demo accounts. Change the emails to match your seeded users. */
+const DEMO_ACCOUNTS = {
+  angelica: {
+    label: 'Angelica Biaga (Demo)',
+    email: 'angelicabiaga@coffeespot.local',
+    password: 'CoffeeSpot123!',
+  },
+  manager: {
+    label: 'Manager',
+    email: 'manager@coffeespot.local',
+    password: 'CoffeeSpot123!',
+  },
+  staff: {
+    label: 'Staff',
+    email: 'staff@coffeespot.local',
+    password: 'CoffeeSpot123!',
+  },
+};
+
+/* Sets an input value in a way React notices */
+const setInputValue = (el, value) => {
+  if (!el) return;
+  Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(el, value);
+  el.dispatchEvent(new Event('input', { bubbles: true }));
+};
+
 export default function Login() {
   const { user, login, demo } = useAuth();
   const [register, setRegister] = useState(false);
   const [success, setSuccess] = useState('');
+  const [fillWith, setFillWith] = useState(null);
+  const formRef = useRef(null);
+
+  /* Fill the login fields once the login form is showing */
+  useEffect(() => {
+    if (!fillWith || register || !formRef.current) return;
+    setInputValue(formRef.current.querySelector('input[name="email"]'), fillWith.email);
+    setInputValue(formRef.current.querySelector('input[name="password"]'), fillWith.password);
+    setFillWith(null);
+  }, [fillWith, register]);
+
+  const fillDemo = (account) => {
+    setSuccess('');
+    setRegister(false);
+    setFillWith(account);
+  };
 
   if (user) return <Navigate to="/" replace />;
 
@@ -55,7 +97,7 @@ export default function Login() {
       </section>
 
       <section className="login-form-wrap">
-        <div className="login-form">
+        <div className="login-form" ref={formRef}>
           <div className="eyebrow">WELCOME TO YOUR WORKSPACE</div>
 
           <h2>{register ? 'Join the team' : 'Welcome back.'}</h2>
@@ -171,11 +213,35 @@ export default function Login() {
             <ArrowRight size={17} />
           </button>
 
+          <button
+            type="button"
+            className="demo-fill demo-fill-main"
+            onClick={() => fillDemo(DEMO_ACCOUNTS.angelica)}
+          >
+            <Sparkles size={18} />
+            <span>
+              <b>{DEMO_ACCOUNTS.angelica.label}</b>
+              <small>Click to fill the login fields</small>
+            </span>
+          </button>
+
           {demo && (
             <div className="demo-login">
               <b>Explore the sample workspace</b>
-              <span>Manager: manager@coffeespot.local</span>
-              <span>Staff: staff@coffeespot.local</span>
+              <button
+                type="button"
+                className="demo-fill"
+                onClick={() => fillDemo(DEMO_ACCOUNTS.manager)}
+              >
+                Manager: {DEMO_ACCOUNTS.manager.email}
+              </button>
+              <button
+                type="button"
+                className="demo-fill"
+                onClick={() => fillDemo(DEMO_ACCOUNTS.staff)}
+              >
+                Staff: {DEMO_ACCOUNTS.staff.email}
+              </button>
               <span>Password: CoffeeSpot123!</span>
             </div>
           )}
