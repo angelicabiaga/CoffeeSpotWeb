@@ -7,7 +7,7 @@ import {
   UserRound,
   Mail,
   LockKeyhole,
-  Sparkles,
+ 
 } from 'lucide-react';
 import { useAuth } from '../Auth';
 import { api } from '../api';

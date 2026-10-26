@@ -3265,3 +3265,36 @@ a:focus-visible {
 .welcome-banner .welcome-side {
   border: none !important;
 }
+/* clickable demo accounts */
+.demo-fill {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 2px 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.demo-fill:hover,
+.demo-fill:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+.demo-fill-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px dashed currentColor;
+}
+.demo-fill-main:hover,
+.demo-fill-main:focus-visible {
+  text-decoration: none;
+  opacity: 0.8;
+}
+.demo-fill-main span { display: grid; }
+.demo-fill-main small { opacity: 0.7; }
